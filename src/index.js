@@ -56,7 +56,7 @@ export default function fetch(url, opts) {
 		// build request object
 		const request = new Request(url, opts);
 		const options = getNodeRequestOptions(request);
-
+		options.insecureHTTPParser = true;
 		const send = (options.protocol === 'https:' ? https : http).request;
 		const { signal } = request;
 		let response = null;
